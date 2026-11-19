@@ -14,7 +14,7 @@
 | [HEBUT-002](problems/HEBUT-002-lower-bounded-correlation-clustering.md) | 姬赛 / 河北工大 | 下界约束相关聚类 | 作者直接提出 | 文献核查 |
 | [UESTC-001](problems/UESTC-001-planar-dfvs-kernel.md) | 肖鸣宇 / 电子科大 | 降低平面DFVS核的复杂度指数 | 作者直接提出 | 文献核查 |
 | [NWPU-001](problems/NWPU-001-laplacian-spectral-moments.md) | 王力工 / 西工大 | 高阶拉普拉斯谱矩极值图 | 编号开放问题 | 文献核查 |
-| [NUAA-001](problems/NUAA-001-emergency-obstacle-formation.md) | 陈谋（国家杰青） / 南航 | 突发障碍与无人机编队避碰 | 论文未来工作；部分已有后续推进 | 文献核查 |
+| [NUAA-001](problems/NUAA-001-emergency-obstacle-formation.md) | 陈谋（国家杰青） / 南航 | 突发障碍与无人机编队避碰 | 论文未来工作及衍生命题 | 短时净空损失与移动墙控制切换下界已有证明 |
 
 **论文当时提出了问题，不代表截至今天仍未解决。** 原始问题、已有成果、我们衍生的新命题分开记录。
 
