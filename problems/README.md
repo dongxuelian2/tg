@@ -8,6 +8,6 @@
 | [HEBUT-002](HEBUT-002-lower-bounded-correlation-clustering.md) | 河北工大 / 姬赛 | 下界约束相关聚类 | author-stated | literature-check |
 | [UESTC-001](UESTC-001-planar-dfvs-kernel.md) | 电子科大 / 肖鸣宇 | DFVS核化规模 | author-stated | literature-check |
 | [NWPU-001](NWPU-001-laplacian-spectral-moments.md) | 西工大 / 王力工 | 有向图谱矩极值 | author-stated | literature-check |
-| [NUAA-001](NUAA-001-emergency-obstacle-formation.md) | 南航 / 陈谋 | 突发障碍下编队避碰 | future-work, partially-followed-up | literature-check |
+| [NUAA-001](NUAA-001-emergency-obstacle-formation.md) | 南航 / 陈谋 | 突发障碍下编队避碰 | future-work, derived | in-progress |
 
 新的候选问题按 [模板](../templates/problem.md) 建档。
