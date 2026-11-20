@@ -3,7 +3,7 @@
 - 学校 / 研究者：南京航空航天大学 · 陈谋（Mou Chen，2018年国家杰青）
 - 领域：非线性控制、多智能体系统、无人机避碰
 - 证据类型：future-work（论文明确陈述的未来工作；其中编队切换已存在后续研究）
-- 当前状态：in-progress（两个衍生子问题有证明；原始广义问题仍开放核查）
+- 当前状态为 in-progress（已有分模型结论、反例和构造，原始广义问题仍待解决）
 - 记录日期：2026-11-18
 - 优先试点日期：2026-11-19
 
@@ -64,3 +64,19 @@ python problems/NUAA-001/verify.py
 移动墙的反例搜索取两个检查点、16 格切换时间和 5 档连续控制幅值的离散子集，穷举 13,125 组至多两次切换的指令。最好的候选仍在至少一个检查点不足 $2.2675\times10^{-5}$（归一化位移）。这个数字只描述所搜网格；无网格假设的不可能性由唯一性和紧性证明。脉冲近似另在四种网格上核查格点的角度、角速度及格间位移误差。
 
 该结果限于短时预警、指定通信和观测结构、标明的空间约束。对一般三维障碍、固定电机带宽及任意次重规划的无限时域递归可行性，尚无完整判据。
+
+## 2026-11-20 · 阶段研究成果
+
+本次整理收录 58 份研究笔记与 33 个核验脚本。各笔记列出适用的动力学、观测和执行约束。部分笔记包含待核实文献优先权的命题或仍需补证的工作推导。原问题状态仍为 in-progress。[全部阶段材料](NUAA-001/)
+
+- **三维动力学、重规划与换形。** 推导三维刚体和电机状态的轨迹拼接与可达尺度，以及缩放速度、控制余量和换管净空的判据。[三维跟踪](NUAA-001/three-dimensional-tracking.md) · [编队时间律](NUAA-001/formation-clock.md) · [换管证书](NUAA-001/tube-handover.md) · [短时悬停交接](NUAA-001/hover-handover-width.md)
+- **通信延迟与私有信息。** 给出接收历史和剩余控制能力的联合条件，以及两机纠偏的负环证书。三机反例表明，在固定不可行差距下，任意给定数量的情景也可能不足以证伪。另给出一个可靠的一比特广播能够恢复可行性的模型，并核验其有限时限临界值。[擦除与截止时间](NUAA-001/erased-trigger-deadline.md) · [两机纠偏](NUAA-001/private-correction-cycles.md) · [三机反例](NUAA-001/three-agent-witness.md) · [一比特修复](NUAA-001/private-bit-repair.md)
+- **扰动、遥测和遮挡。** 推导共同阵风的格间精确包络和相对观测的地速歧义，再将遮挡后验、通信擦除和真实交接状态纳入可检验的条件。[阵风消元](NUAA-001/common-wind-quotient.md) · [相对遥测](NUAA-001/drag-sampling-radius.md) · [空报告传播](NUAA-001/visibility-history.md) · [预警交接](NUAA-001/warning-handover.md)
+- **无限时域与复杂性。** 在指定信息与鲁棒余量条件下给出递归可行性构造，并记录有限证书的适用边界、异步私有决策造成的困难以及需要继续证明的条件。[鲁棒递归构造](NUAA-001/nonconvex-recovery.md) · [无限时域底稿](NUAA-001/infinite-horizon.md) · [无公共刷新证书](NUAA-001/no-refresh-certificates.md) · [移动门复杂性](NUAA-001/repeated-gate-hardness.md)
+
+使用 Python 3.13.1、NumPy 2.2.5 和 SciPy 1.16.1 运行了 33 个新增脚本及原有的 `verify.py`，均通过。脚本检验报告枚举、线性规划、精确算术证书及刚体方程的数值积分。每项结论的证明和适用边界见对应笔记。可以在仓库根目录运行以下命令复核。
+
+~~~sh
+python problems/NUAA-001/verify.py
+python -c "from pathlib import Path; import subprocess, sys; [subprocess.run([sys.executable, str(script)], check=True) for script in sorted(Path('problems/NUAA-001').glob('check_*.py'))]"
+~~~
